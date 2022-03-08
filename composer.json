@@ -1,0 +1,10 @@
+{
+    "name": "baozhigang/composer-demo",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Baozhigang\\ComposerDemo\\": "src/"
+        }
+    },
+    "require": {}
+}
