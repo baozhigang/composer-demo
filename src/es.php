@@ -6,22 +6,29 @@ use Elasticsearch\ClientBuilder;
 
 require 'vendor/autoload.php';
 
-$hosts = [
-    'http://elastic:-ytQ=gCj0+HPvIfNdEFL@10.1.1.64:9200/',
-    // '10.1.1.64:9200',
-];
+$hosts = ['https://elastic:4NZqejYHoG4-8x*NNxH=@localhost:9200'];
+$myCert = '/Users/baozhigang/work/es/http_ca.crt';
 
 $cli = ClientBuilder::create()
     ->setHosts($hosts)
+    ->setSSLVerification($myCert)
     ->build();
 
+// $params = [
+//     'index' => 'index_1',
+//     'id' => 'id_1',
+//     'body' => ['content' => 'abc']
+// ];
+
 $params = [
-    'index' => '.ds-logs-my_app-default-2022.03.08-000001',
-    'id'    => '9GhOaX8B-034dwU1qNiC'
+    'index' => 'index_1',
+    'id' => 'id_1',
 ];
 
-$response = $cli->get($params);
+// TODO  id,index 以什么规则去设置
+
+// $response = $cli->index($params);
+$response = $cli->search();
+// $response = $cli->get($params);
+
 print_r($response);
-
-
-
